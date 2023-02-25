@@ -46,6 +46,16 @@ The plot below shows the number of recipes associated with each sugar value in t
 The plot below shows the distribution of mean_ratings of all recipes in the data. As shown in the plot, there are a lot more highly rated reviews than lower rated reviews (more than half of the recipes have a 4.9 - 5.0 star rating).
 <iframe src="assets/uni2.html" width=800 height=600 frameBorder=0></iframe>
 
+**Calories Analysis**
+The plot below shows the distribution of calories from the recipes in the data. A bulk of the recipes have less than 500 calories.
+<iframe src="assets/fig2.html" width=800 height=600 frameBorder=0></iframe>
+
+**Statistics**
+|             |     Mean |   Median |   Standard Deviation |
+|:------------|---------:|---------:|---------------------:|
+| Sugar (PDV) |  41.5452 |     22   |             50.4455  |
+| Mean Rating |   4.4841 |      5   |              1.01452 |
+| Calories    | 385.586  |    301.9 |            336.977   |
 
 ### Bivariate Analysis
 
