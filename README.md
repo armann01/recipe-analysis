@@ -5,6 +5,10 @@ Website containing analysis of food.com data. Completed as a project for the cou
 ## Introduction 
  Our data consists of ratings and recipes taken from food.com. We were given two datasets, one containing the recipes themselves (called recipes), and another containing user reviews on those recipes (called interactions). Throughout our exploration of the dataset, we realized that the main question people want to have answered about food is: How good does it taste? There is a column in our data that helps us answer this question: the rating column! By figuring which recipes have the best ratings, we can make some sort of judgement on what the best recipe (and food!) is. We noticed that the recipes had certain tags associated with them, one of those tags being the "desserts" tag. So we decided to test **whether or not dessert recipes had lower average ratings than non-dessert recipes**. Our analysis could be useful to any user browsing food.com looking at recipes that are labled as desserts. Why? It would show them that desserts might possibly not be the best recipes to get from food.com if they end up having lower average ratings than non-dessert recipes. 
 
+### Question
+Do dessert recipes have lower average ratings than non-dessert recipes?
+
+
 ### Dataset
  Our dataset ended up containing 234429 rows and 15 columns. Relevant columns include the "tags" column, "nutrition" column, and "mean_rating" column.
  The tags column includes information about what type of food the recipe makes, for example a relevant tag we looked for was "dessert". Other tags include "for-large-groups", "60-minutes-or-less", and "american". The nutrition column includes a lot of the nutrition facts of the food, including calories, fat, sugar, sodium, protein and carbohydrates. The mean_rating column tells us the average rating of the recipe from all the users who rated it.
@@ -66,13 +70,112 @@ The below grouped table shows the difference of means between the distribution o
 | True      | 4.36899 |   12986 |
 
 
-### Assessment of Missingness
+## Assessment of Missingness
 
-NA for NOW!
+### NMAR Analysis
+After loading in and inspecting the dataset, there were two columns that have missing values that were considered to be important to assess the missingness in the dataset. These were the 'description' and the 'mean_rating' columns, of which the former is considered to be Not Missing At Random (NMAR).
+
+Upon closer inspection, the rows with missing descriptions were selected and other columns were selected as well. The group found that these missing descriptions were related to the age of the recipes when they were submitted. The newest date in these recipes was in the year 2011, and some recipes with missing descriptions were as old as 2008. This would make the NMAR values of the 'description' column to be MAR as there could be a possibility that older recipes did not have any descriptions when they were written.
+
+|       | submitted   |   description |
+|------:|:------------|--------------:|
+| 22467 | 2011-03-02  |           nan |
+| 15652 | 2011-03-02  |           nan |
+| 69723 | 2011-03-01  |           nan |
+| 64915 | 2011-03-01  |           nan |
+| 16909 | 2011-03-01  |           nan |
+| 26626 | 2011-02-16  |           nan |
+| 35048 | 2010-07-27  |           nan |
+| 81701 | 2010-06-22  |           nan |
+| 79329 | 2010-05-04  |           nan |
+| 63766 | 2010-03-16  |           nan |
+| 61313 | 2010-01-20  |           nan |
+| 16691 | 2010-01-02  |           nan |
+| 32822 | 2009-12-28  |           nan |
+|  8384 | 2009-11-30  |           nan |
+|  1486 | 2009-11-29  |           nan |
+| 59432 | 2009-11-04  |           nan |
+| 15916 | 2009-09-29  |           nan |
+| 23093 | 2009-09-29  |           nan |
+| 53999 | 2009-09-28  |           nan |
+| 10297 | 2009-09-28  |           nan |
+| 76695 | 2009-09-22  |           nan |
+| 53606 | 2009-09-08  |           nan |
+| 21366 | 2009-09-01  |           nan |
+| 83070 | 2009-08-25  |           nan |
+| 54496 | 2009-08-07  |           nan |
+| 58362 | 2009-08-06  |           nan |
+| 38974 | 2009-08-06  |           nan |
+| 76544 | 2009-08-03  |           nan |
+| 80877 | 2009-07-31  |           nan |
+| 74159 | 2009-07-30  |           nan |
+|  5803 | 2009-07-25  |           nan |
+|  3685 | 2009-07-24  |           nan |
+| 32098 | 2009-07-24  |           nan |
+| 23456 | 2009-07-14  |           nan |
+| 35104 | 2009-07-09  |           nan |
+|  5984 | 2009-06-26  |           nan |
+| 42636 | 2009-06-24  |           nan |
+|  5983 | 2009-06-24  |           nan |
+| 53268 | 2009-06-20  |           nan |
+| 54086 | 2009-06-10  |           nan |
+| 34881 | 2009-06-06  |           nan |
+| 31618 | 2009-06-01  |           nan |
+| 10611 | 2009-04-29  |           nan |
+| 15420 | 2009-04-22  |           nan |
+| 34516 | 2009-04-13  |           nan |
+| 67704 | 2009-04-09  |           nan |
+| 69838 | 2009-03-19  |           nan |
+| 41805 | 2009-03-11  |           nan |
+| 64008 | 2009-02-24  |           nan |
+| 51206 | 2008-10-31  |           nan |
+|  3087 | 2008-10-22  |           nan |
+| 60653 | 2008-10-20  |           nan |
+| 33940 | 2008-10-18  |           nan |
+| 27426 | 2008-10-17  |           nan |
+| 27853 | 2008-10-16  |           nan |
+| 22958 | 2008-10-16  |           nan |
+| 48610 | 2008-10-16  |           nan |
+| 22945 | 2008-10-16  |           nan |
+| 22953 | 2008-10-16  |           nan |
+| 22964 | 2008-10-16  |           nan |
+| 32028 | 2008-08-14  |           nan |
+| 17727 | 2008-07-21  |           nan |
+| 38886 | 2008-07-20  |           nan |
+| 66968 | 2008-05-31  |           nan |
+| 70507 | 2008-05-06  |           nan |
+| 23910 | 2008-03-13  |           nan |
+| 81188 | 2008-03-06  |           nan |
+| 28105 | 2008-02-23  |           nan |
+| 55883 | 2008-01-20  |           nan |
+| 18517 | 2008-01-18  |           nan |
+
+### Missingness Dependency
+The other column with missing values, 'mean_rating' is chosen for analysis to determine its missingness mechanism. To test this, a new dataframe was created that had four quantitative columns selected (minutes,n_steps,n_ingredients,calories) in order to test whether mean_rating is Missing Completely at Random (MCAR)(no explanation in the dataset as to why mean_ratings is missing) or Missing at Random (MAR) (the missingness of mean_ratings is related to another column in the dataset).
+
+In order to check whether these chosen columns had an influence on the missingness of mean_rating or not, a permutation test was conducted to check whether the means of the (minutes,n_steps,n_ingredients,calories) of the recipe are different based on whether a mean_rating is present for that recipe or not. The chosen test statistic for this test is the Kolmogorov-Smirnov test statistic, as the distributions for each attribute have different shapes, but centered around the same location.
+
+<iframe src="assets/calories_graph.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/ingredients_graph.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/minutes_graph.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/steps_graph.html" width=800 height=600 frameBorder=0></iframe>
 
 
+After executing the permutation test for these columns against mean_rating missingness, it was found out that the missingness of mean_ratings was MAR based on minutes,n_steps, and calories. The difference in these columns for missing and non-missing values in mean_rating is significant enough to suggest that mean_ratings is MAR based on these columns. 
 
-### Hypothesis Testing 
+| column        |   K-S Statistic | Reject Null?   |
+|:--------------|----------------:|:---------------|
+| calories      |     3.16339e-07 | Yes            |
+| n_steps       |     5.29815e-12 | Yes            |
+| minutes       |     5.3682e-26  | Yes            |
+| n_ingredients |     0.0540379   | No             |
+
+On the other hand, the permutation test did not yield significant results for the n_ingredients column, which means that the missingness of mean_ratings is not dependent on this column.
+
+## Hypothesis Testing 
 
 **Null Hypothesis:** In the population, mean ratings of recipes that make desserts and recipes that do not make desserts have the same distribution, and the observed differences in our samples are due to random chance.
 
