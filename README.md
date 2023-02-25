@@ -75,78 +75,13 @@ After loading in and inspecting the dataset, there were two columns that have mi
 
 Upon closer inspection, the rows with missing descriptions were selected and other columns were selected as well. The group found that these missing descriptions were related to the age of the recipes when they were submitted. The newest date in these recipes was in the year 2011, and some recipes with missing descriptions were as old as 2008. This would make the NMAR values of the 'description' column to be MAR as there could be a possibility that older recipes did not have any descriptions when they were written.
 
-|       | submitted   |   description |
+| recipe id | submitted   |   description |
 |------:|:------------|--------------:|
 | 22467 | 2011-03-02  |           nan |
 | 15652 | 2011-03-02  |           nan |
 | 69723 | 2011-03-01  |           nan |
 | 64915 | 2011-03-01  |           nan |
 | 16909 | 2011-03-01  |           nan |
-| 26626 | 2011-02-16  |           nan |
-| 35048 | 2010-07-27  |           nan |
-| 81701 | 2010-06-22  |           nan |
-| 79329 | 2010-05-04  |           nan |
-| 63766 | 2010-03-16  |           nan |
-| 61313 | 2010-01-20  |           nan |
-| 16691 | 2010-01-02  |           nan |
-| 32822 | 2009-12-28  |           nan |
-|  8384 | 2009-11-30  |           nan |
-|  1486 | 2009-11-29  |           nan |
-| 59432 | 2009-11-04  |           nan |
-| 15916 | 2009-09-29  |           nan |
-| 23093 | 2009-09-29  |           nan |
-| 53999 | 2009-09-28  |           nan |
-| 10297 | 2009-09-28  |           nan |
-| 76695 | 2009-09-22  |           nan |
-| 53606 | 2009-09-08  |           nan |
-| 21366 | 2009-09-01  |           nan |
-| 83070 | 2009-08-25  |           nan |
-| 54496 | 2009-08-07  |           nan |
-| 58362 | 2009-08-06  |           nan |
-| 38974 | 2009-08-06  |           nan |
-| 76544 | 2009-08-03  |           nan |
-| 80877 | 2009-07-31  |           nan |
-| 74159 | 2009-07-30  |           nan |
-|  5803 | 2009-07-25  |           nan |
-|  3685 | 2009-07-24  |           nan |
-| 32098 | 2009-07-24  |           nan |
-| 23456 | 2009-07-14  |           nan |
-| 35104 | 2009-07-09  |           nan |
-|  5984 | 2009-06-26  |           nan |
-| 42636 | 2009-06-24  |           nan |
-|  5983 | 2009-06-24  |           nan |
-| 53268 | 2009-06-20  |           nan |
-| 54086 | 2009-06-10  |           nan |
-| 34881 | 2009-06-06  |           nan |
-| 31618 | 2009-06-01  |           nan |
-| 10611 | 2009-04-29  |           nan |
-| 15420 | 2009-04-22  |           nan |
-| 34516 | 2009-04-13  |           nan |
-| 67704 | 2009-04-09  |           nan |
-| 69838 | 2009-03-19  |           nan |
-| 41805 | 2009-03-11  |           nan |
-| 64008 | 2009-02-24  |           nan |
-| 51206 | 2008-10-31  |           nan |
-|  3087 | 2008-10-22  |           nan |
-| 60653 | 2008-10-20  |           nan |
-| 33940 | 2008-10-18  |           nan |
-| 27426 | 2008-10-17  |           nan |
-| 27853 | 2008-10-16  |           nan |
-| 22958 | 2008-10-16  |           nan |
-| 48610 | 2008-10-16  |           nan |
-| 22945 | 2008-10-16  |           nan |
-| 22953 | 2008-10-16  |           nan |
-| 22964 | 2008-10-16  |           nan |
-| 32028 | 2008-08-14  |           nan |
-| 17727 | 2008-07-21  |           nan |
-| 38886 | 2008-07-20  |           nan |
-| 66968 | 2008-05-31  |           nan |
-| 70507 | 2008-05-06  |           nan |
-| 23910 | 2008-03-13  |           nan |
-| 81188 | 2008-03-06  |           nan |
-| 28105 | 2008-02-23  |           nan |
-| 55883 | 2008-01-20  |           nan |
-| 18517 | 2008-01-18  |           nan |
 
 ### Missingness Dependency
 The other column with missing values, 'mean_rating' is chosen for analysis to determine its missingness mechanism. To test this, a new dataframe was created that had four quantitative columns selected (minutes,n_steps,n_ingredients,calories) in order to test whether mean_rating is Missing Completely at Random (MCAR)(no explanation in the dataset as to why mean_ratings is missing) or Missing at Random (MAR) (the missingness of mean_ratings is related to another column in the dataset).
