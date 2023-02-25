@@ -5,14 +5,14 @@ Website containing analysis of food.com data. Completed as a project for the cou
 ## Introduction 
  Our data consists of ratings and recipes taken from food.com. We were given two datasets, one containing the recipes themselves (called recipes), and another containing user reviews on those recipes (called interactions). Throughout our exploration of the dataset, we realized that the main question people want to have answered about food is: How good does it taste? There is a column in our data that helps us answer this question: the rating column! By figuring which recipes have the best ratings, we can make some sort of judgement on what the best recipe (and food!) is. We noticed that the recipes had certain tags associated with them, one of those tags being the "desserts" tag. So we decided to test **whether or not dessert recipes had lower average ratings than non-dessert recipes**. Our analysis could be useful to any user browsing food.com looking at recipes that are labled as desserts. Why? It would show them that desserts might possibly not be the best recipes to get from food.com if they end up having lower average ratings than non-dessert recipes. 
 
- ### Dataset
+### Dataset
  Our dataset ended up containing 234429 rows and 15 columns. Relevant columns include the "tags" column, "nutrition" column, and "mean_rating" column.
  The tags column includes information about what type of food the recipe makes, for example a relevant tag we looked for was "dessert". Other tags include "for-large-groups", "60-minutes-or-less", and "american". The nutrition column includes a lot of the nutrition facts of the food, including calories, fat, sugar, sodium, protein and carbohydrates. The mean_rating column tells us the average rating of the recipe from all the users who rated it.
 
 
- ## Cleaning and EDA
+## Cleaning and EDA
 
- ### Data Cleaning
+### Data Cleaning
  To clean our data, we first had to figure out a way to merge the recipes dataset with the user reviews dataset. We accomplished this by renaming the "recipe_id" column in the interactions to "id" so we could merge the two datasets together. We then performed a left merge between the two DataFrames to create our 234429 row dataset we used for the rest of our analysis. We filled in any rating of 0 with NaN because it's impossible to give a rating of 0 stars on food.com. The only way a review is "0" is if they didn't leave a review at all, so we filled any zeroes with Nans. We calculated the average ratings for each recipe by grouping by "id" (because each id corresponds to one recipe) and aggregating by mean. We took the rating column from that grouped dataframe, then merged it back into the original dataframe with the new column being named "mean_rating". We dropped the "date" and "review" columns because they become irrelevant after merging. 
 
  We converted the nutrition column to a list, and made every element in the list its own column in the dataframe. We dropped the rating column because we didn't have a use for it after we created the "mean_rating" column. We removed duplicate recipes from the dataframe, which dropped our rows down to 83782 from 234429. We found one row in the datafame with a missing recipe name. Through some research on the ingredients column, we were able to figure out that the missing recipe name was Salad Dressing. The description was also missing from this specific row so we were able to find the correct description by looking at the other recipes the author put on food.com. All of her other descriptions were the same, so we just copied one over to replace the missing value. 
@@ -34,9 +34,28 @@ Website containing analysis of food.com data. Completed as a project for the cou
 |  4 | 2000 meatloaf                        | 475785 |        90 |          2202916 | 2012-03-06  | ['time-to-make', 'course', 'main-ingredient', 'preparation', 'main-dish', 'potatoes', 'vegetables', '4-hours-or-less', 'meatloaf', 'simply-potatoes2']                                                                                                                                             | ['267.0', '30.0', '12.0', '12.0', '29.0', '48.0', '2.0']    |        17 | Steps Omitted (Too Long) | ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish. featuring: simply potatoes - shredded hash browns, egg, bacon, spinach, red bell pepper, and goat cheese.                                                                                                                                                                         | ['meatloaf mixture', 'unsmoked bacon', 'goat cheese', 'unsalted butter', 'eggs', 'baby spinach', 'yellow onion', 'red bell pepper', 'simply potatoes shredded hash browns', 'fresh garlic', 'kosher salt', 'white pepper', 'olive oil'] |              13 |      2.20436e+06 |             5 |      267   |                30 |            12 |             12 |              29 |                    48 |                     2 | False     |
 
 
+### Univariate Analysis 
 
- ### Univariate Analysis 
-
+**Sugar Analysis**
+The plot below shows the number of recipes associated with each sugar value in the data. As the Percent Daily Value of sugar increases, the number of recipes associated with that sugar value decreases, which shows us that a bulk of the recipes contains less than 50 Percent Daily Value of sugar. 
 <iframe src="assets/uni1.html" width=800 height=600 frameBorder=0></iframe>
+
+**Mean_Rating Analysis**
+The plot below shows the distribution of mean_ratings of all recipes in the data. As shown in the plot, there are a lot more highly rated reviews than lower rated reviews (more than half of the recipes have a 4.9 - 5.0 star rating).
+<iframe src="assets/uni2.html" width=800 height=600 frameBorder=0></iframe>
+
+
+### Bivariate Analysis
+
+**Mean_Rating vs. Sugar**
+Below plot is a scatter plot of mean rating vs. sugar, showing a slightly positive correlation between the two values.
+<iframe src="assets/bi_analysis1.html" width=800 height=600 frameBorder=0></iframe>
+
+**Dessert vs. Non-Dessert**
+Below plot shows the distribution between recipes that have the "desserts" tag associated with them vs. the recipes that do not have the "desserts" tag. The recipes distribution with the "desserts" tag looks to have lower ratings than the other distribution without the "desserts" tag.
+<iframe src="assets/bi_analysis2.html" width=800 height=600 frameBorder=0></iframe>
+
+
+
 
 
