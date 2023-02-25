@@ -1,4 +1,5 @@
 # The Sweetness of Peoples Ratings
+### created by Dean Solano and Arman Rahman
 
 ## Introduction 
  Our data consists of ratings and recipes taken from food.com. We were given two datasets, one containing the recipes themselves (called recipes), and another containing user reviews on those recipes (called interactions). Throughout our exploration of the dataset, we realized that the main question people want to have answered about food is: How good does it taste? There is a column in our data that helps us answer this question: the rating column! By figuring which recipes have the best ratings, we can make some sort of judgement on what the best recipe (and food!) is. We noticed that the recipes had certain tags associated with them, one of those tags being the "desserts" tag. So we decided to test **whether or not dessert recipes had lower average ratings than non-dessert recipes**. Our analysis could be useful to any user browsing food.com looking at recipes that are labled as desserts. Why? It would show them that desserts might possibly not be the best recipes to get from food.com if they end up having lower average ratings than non-dessert recipes. 
