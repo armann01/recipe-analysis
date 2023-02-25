@@ -51,6 +51,7 @@ The plot below shows the distribution of calories from the recipes in the data. 
 <iframe src="assets/fig2.html" width=800 height=600 frameBorder=0></iframe>
 
 **Statistics**
+
 |             |     Mean |   Median |   Standard Deviation |
 |:------------|---------:|---------:|---------------------:|
 | Sugar (PDV) |  41.5452 |     22   |             50.4455  |
