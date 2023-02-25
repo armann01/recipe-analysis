@@ -56,6 +56,42 @@ Below plot shows the distribution between recipes that have the "desserts" tag a
 <iframe src="assets/bi_analysis2.html" width=800 height=600 frameBorder=0></iframe>
 
 
+### Interesting Aggregates
+
+The below grouped table shows the difference of means between the distribution of recipes that are dessert and the distribution of recipes that are not desserts. 
+
+| dessert   |    mean |   count |
+|:----------|--------:|--------:|
+| False     | 4.50572 |   69145 |
+| True      | 4.36899 |   12986 |
+
+
+### Assessment of Missingness
+
+NA for NOW!
+
+
+
+### Hypothesis Testing 
+
+**Null Hypothesis:** In the population, mean ratings of recipes that make desserts and recipes that do not make desserts have the same distribution, and the observed differences in our samples are due to random chance.
+
+**Alternate Hypothesis:** In the population, recipes that make desserts have a lower mean rating than non-dessert recipes, on average. The observed difference in our samples cannot be explained by random chance alone.
+
+**Test Statistic:** Difference in group means. In the context of our data: mean rating of dessert recipes - mean rating of non-dessert recipes. We used difference of group means because we looked at the two distributions visually and in an agreggated and found that there were differences between the two distributions, which allowed us to use the difference of group means as a test statistic.
+Observed test statistic: -0.13748308266376963
+
+**Significance Level:** We are choosing a significance level of 0.01 because we want to make sure that if our test ends up rejecting the null hypothesis, we have less room for error. If we use a significance level of 0.01, we only have a 1% risk of concluding that a difference exists when there is no actual difference.
+
+We then performed a permutation test, shuffling the mean_rating then computing the test statistic. We performed 500 repetitions of this test.
+
+**Resulting P-Value:** Our P-Value ended up being 0, which is below the significance level we set for this test. 
+
+**Conclusion:** Under our null hypothesis, it is extremely rare to see a difference of -0.13748308266376963 that we found in our observed statistic. We reject the null hypothesis that the two groups came from the same distribution. So, it is a possibility that dessert recipes recieve lower average ratings than non-dessert recipes. That means it is possible that people on food.com do not like dessert as much as non-dessert food. 
+
+
+
+
 
 
 
